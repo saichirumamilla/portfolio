@@ -3,330 +3,372 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Section</title>
+<title>Saikeerthi's Portfolio</title>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+  :root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #9b59b6;
+  }
+  
+  body {
+    padding-top: 56px;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Navigation */
+  .navbar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background-color: var(--secondary-color) !important;
+  }
+  .navbar-brand {
+    font-weight: 600;
+  }
+  
+  /* Main layout */
+  .main-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .left-column {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 33.333%;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    padding: 30px;
+    background-color: #f8f9fa;
+  }
+  .right-column {
+    width: 66.666%;
+    margin-left: 33.333%;
+    padding: 30px;
+  }
+  
+  /* About Section */
   .about-section {
     text-align: center;
+  }
+  .profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 25px;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    object-fit: cover;
+  }
+  .intro-text {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+  }
+  .contact-info {
+    margin: 20px 0;
+  }
+  .contact-info p {
+    margin-bottom: 5px;
+  }
+  
+  /* Highlights List */
+  .highlights-list {
+    padding-left: 0;
+    margin: 30px 0;
+  }
+  .highlights-list li {
+    list-style: none;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+  .highlights-list li:hover {
+    transform: translateX(5px);
+  }
+  .highlights-list .emoji {
+    font-size: 1.3rem;
+    margin-right: 15px;
+    width: 30px;
+    text-align: center;
+  }
+  
+  /* Skills Card */
+  .skills-card {
+    margin-top: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+  .skill-category {
+    margin-bottom: 20px;
+  }
+  .skill-category h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .skill-tag {
+    background: #e1f0fa;
+    color: var(--secondary-color);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  /* Sections */
+  .section {
     padding: 50px 0;
   }
-  .about-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--secondary-color);
+    font-weight: 600;
+    text-align: center;
+    position: relative;
   }
-  .about-section img {
-    width: 200px; /* Adjust the size as needed */
+  .section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    margin: 15px auto;
+    border-radius: 2px;
+  }
+  
+  /* Professional Summary */
+  .professional-summary {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+  
+  /* Collapsible Experience */
+  .experience-accordion {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  }
+  .experience-item {
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+  }
+  .experience-item:last-child {
+    border-bottom: none;
+  }
+  .experience-header {
+    padding: 20px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .experience-header:hover {
+    background: #f8f9fa;
+  }
+  .experience-header h5 {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+  }
+  .experience-header h6 {
+    color: var(--primary-color);
+    font-size: 1rem;
+  }
+  .experience-date {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    min-width: 120px;
+    text-align: right;
+  }
+  .experience-content {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: #f8f9fa;
+  }
+  .experience-content-inner {
+    padding: 20px 0;
+  }
+  .experience-content ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+  }
+  .experience-content li {
+    margin-bottom: 8px;
+  }
+  .experience-item.active .experience-content {
+    max-height: 500px;
+  }
+  .experience-item.active .experience-header {
+    background: #f1f8fe;
+  }
+  .expand-icon {
+    transition: transform 0.3s ease;
+  }
+  .experience-item.active .expand-icon {
+    transform: rotate(180deg);
+  }
+  
+  /* Projects */
+  .project-card {
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-5px);
+  }
+  .project-card img {
     height: 200px;
-    border-radius: 50%; /* Makes the image round */
+    object-fit: cover;
+  }
+  .project-card .card-body {
+    padding: 20px;
+  }
+  .project-card .card-title {
+    font-weight: 600;
+    color: var(--secondary-color);
+  }
+  .tech-badges {
+    margin: 15px 0;
+  }
+  .tech-badge {
+    background: #e1f0fa;
+    color: var(--secondary-color);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+  
+  /* Education */
+  .education-item {
+    margin-bottom: 25px;
+  }
+  .education-item h5 {
+    font-weight: 600;
+    color: var(--secondary-color);
+  }
+  .education-item p {
+    margin-bottom: 5px;
+  }
+  .gpa {
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+  
+  /* Awards & Publications */
+  .achievement-item {
     margin-bottom: 20px;
   }
-  .about-section p {
-    color: #333;
+  .achievement-item h5 {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
   }
-
-  /* Additional CSS for Projects Section */
-.projects-section h2 {
-  margin-bottom: 40px;
-  font-size: 2.5rem;
-}
-.card {
-  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Adds a subtle shadow around the card */
-}
-.card-img-top {
-  max-height: 180px; /* Adjust this value to fit the image properly in the card */
-  object-fit: cover; /* This makes sure the image covers the area properly */
-}
-.card-body {
-  padding: 15px;
-}
-.card-title {
-  font-size: 1.25rem;
-}
-.card-text {
-  margin-bottom: 15px;
-}
-
-/* Additional CSS for Skills Section */
-.skills-section h2 {
-  margin-bottom: 40px;
-  font-size: 2.5rem;
-}
-.skills-section .card {
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-.skills-section .card-img-top {
-  padding: 20px; /* Add padding around your images if needed */
-  background-color: #f8f9fa; /* Adjust the background color if your images have transparent areas */
-  height: 180px; /* Fixed height for consistency */
-  object-fit: contain; /* This will make sure the image is scaled properly within the container */
-}
-.skills-section .card-body {
-  padding: 15px;
-}
-.skills-section .card-title {
-  font-size: 1.25rem;
-  margin-bottom: 15px;
-}
-.skills-section .btn-outline-primary {
-  color: #007bff;
-  border-color: #007bff;
-}
-.skills-section .btn-outline-primary:hover {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-/* Additional CSS for Contact Section */
-.contact-section {
-  padding: 50px 0;
-}
-.contact-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-}
-.contact-section p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-}
-.social-icon {
-  width: 50px; /* Size of your icons */
-  margin-bottom: 10px;
-}
-/* Hover effect for icons */
-.social-icon:hover {
-  opacity: 0.7;
-}
-/* Style for links in the Contact section */
-.contact-section a {
-  color: #fff;
-  text-decoration: none; /* Removes underline from links */
-  display: inline-block; /* Allows for margin on the bottom */
-  margin-bottom: 10px;
-}
-.contact-section a:hover {
-  color: #ddd; /* Color when hovering over the link */
-}
-
-/* CSS for Sticky Navbar */
-.navbar {
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Adds a shadow for depth */
-}
-
-/* Ensure padding is added to body to avoid content being hidden behind the navbar */
-body { 
-  padding-top: 56px; /* Adjust this value based on the height of your navbar */
-}
-
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Style for navigation bar links */
-.navbar-nav .nav-link {
-  color: white;
-}
-
-.navbar-nav .nav-link:hover {
-  color: #f8f9fa; /* Slightly lighter white when hovering over links */
-}
-
-/* Media query for responsive navbar collapsing */
-@media (max-width: 992px) {
-  .navbar-collapse {
-    background-color: #343a40; /* Same as navbar color for seamless look */
+  
+  /* Contact */
+  .contact-section {
+    padding: 80px 0;
+    background: var(--secondary-color);
+    color: white;
   }
-}
-
-
+  .contact-section .section-title {
+    color: white;
+  }
+  .contact-section .section-title::after {
+    background: linear-gradient(to right, white, #ddd);
+  }
+  .contact-methods {
+    margin-top: 30px;
+  }
+  .social-links {
+    margin-top: 30px;
+  }
+  .social-links a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+  }
+  .social-links a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  
+  /* Responsive */
+  @media (max-width: 992px) {
+    .left-column {
+      position: static;
+      width: 100%;
+      height: auto;
+    }
+    .right-column {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
 </style>
-
 </head>
 <body>
 
-<section id='about' class="about-section">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container">
-    <h2>About</h2>
-    <img src="images/about/Sai.jpg" alt="About Me">
-
-  <p>Master's graduate in Artificial Intelligence with strong programming and
-research skills. Experienced in applying AI to real- world problems,
-freshly completed thesis on deep learning. Skilled in multitasking and
-time management. Open to full-time opportunities and relocation.</p>
-  </div>
-</section>
-
-
-<!-- Projects Section -->
-<section id="projects" class="projects-section bg-light" id="projects">
-  <div class="container">
-    <h2 class="text-center">Projects</h2>
-    <div class="row">
-      <!-- Project 1 -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="images/projects/1.jpg" class="card-img-top" alt="Project 1">
-          <div class="card-body">
-            <h5 class="card-title">Project 1</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
-            <a href="#" class="btn btn-primary">Blog Post</a>
-            <a href="#" class="btn btn-secondary">Source Code</a>
-          </div>
-        </div>
-      </div>
-      <!-- Project 2 -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="images/projects/2.jpg" class="card-img-top" alt="Project 2">
-          <div class="card-body">
-            <h5 class="card-title">Project 2</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
-            <a href="#" class="btn btn-primary">Blog Post</a>
-            <a href="#" class="btn btn-secondary">Source Code</a>
-          </div>
-        </div>
-      </div>
-      <!-- Project 3 -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="images/projects/3.jpg" class="card-img-top" alt="Project 3">
-          <div class="card-body">
-            <h5 class="card-title">Project 3</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
-            <a href="#" class="btn btn-primary">Blog Post</a>
-            <a href="#" class="btn btn-secondary">Source Code</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- Skills Section -->
-<section id="skills" class="skills-section bg-white" id="skills">
-  <div class="container">
-    <h2 class="text-center">Skills</h2>
-    <div class="row">
-      <!-- Skill 1 -->
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-          <img src="images/skills/1.png" class="card-img-top" alt="Python">
-          <div class="card-body">
-            <h5 class="card-title">Python</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
-            <a href="#" class="btn btn-outline-primary">Link to course or bootcamp</a>
-          </div>
-        </div>
-      </div>
-      <!-- Skill 2 -->
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-          <img src="images/skills/2.png" class="card-img-top" alt="Data Visualization">
-          <div class="card-body">
-            <h5 class="card-title">Data Visualization</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
-            <a href="#" class="btn btn-outline-primary">Link to course or bootcamp</a>
-          </div>
-        </div>
-      </div>
-      <!-- Skill 3 -->
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-          <img src="images/skills/3.png" class="card-img-top" alt="SQL">
-          <div class="card-body">
-            <h5 class="card-title">SQL</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
-            <a href="#" class="btn btn-outline-primary">Link to course or bootcamp</a>
-          </div>
-        </div>
-      </div>
-      <!-- Skill 4 -->
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card">
-          <img src="images/skills/4.png" class="card-img-top" alt="Data Storytelling">
-          <div class="card-body">
-            <h5 class="card-title">Data Storytelling</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu.</p>
-            <a href="#" class="btn btn-outline-primary">Link to course or bootcamp</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact Me Section -->
-<section id="contact" class="contact-section text-center text-white bg-dark">
-  <div class="container">
-    <h2>Contact Me</h2>
-    <div class="row">
-      <div class="col-lg-6">
-        <p><i class="fas fa-envelope"></i> loremipsum@gmail.com</p>
-      </div>
-      <div class="col-lg-6">
-        <p><i class="fas fa-phone"></i> 415xxxxxxx</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-2 col-md-4 mb-4">
-        <a href="https://linkedin.com/in/yourusername" target="_blank">
-          <img src="icons/linkedin.png" alt="LinkedIn" class="social-icon">
-          LinkedIn
-        </a>
-      </div>
-      <div class="col-lg-2 col-md-4 mb-4">
-        <a href="https://twitter.com/yourusername" target="_blank">
-          <img src="icons/twitter.png" alt="Twitter" class="social-icon">
-          Twitter
-        </a>
-      </div>
-      <div class="col-lg-2 col-md-4 mb-4">
-        <a href="https://github.com/yourusername" target="_blank">
-          <img src="icons/github.png" alt="GitHub" class="social-icon">
-          GitHub
-        </a>
-      </div>
-      <div class="col-lg-2 col-md-4 mb-4">
-        <a href="https://medium.com/@yourusername" target="_blank">
-          <img src="icons/medium.png" alt="Medium" class="social-icon">
-          Medium
-        </a>
-      </div>
-      <div class="col-lg-2 col-md-4 mb-4">
-        <a href="https://youtube.com/c/yourchannel" target="_blank">
-          <img src="icons/youtube.png" alt="YouTube" class="social-icon">
-          YouTube
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Sticky Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#home">Portfolio</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="#">Saikeerthi Chirumamilla Hagadur</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#home">Home</a>
+          <a class="nav-link" href="#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#experience">Experience</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#projects">Projects</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#skills">Skills</a>
+          <a class="nav-link" href="#education">Education</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#contact">Contact</a>
@@ -336,10 +378,605 @@ time management. Open to full-time opportunities and relocation.</p>
   </div>
 </nav>
 
+<div class="main-container">
+  <!-- Left Column - Fixed About Me -->
+  <div class="left-column">
+    <section id="about" class="about-section">
+      <img src="images/about/Sai.jpg" alt="Saikeerthi" class="profile-img">
+     <!-- 
+      <div class="contact-info">
+        <p><i class="fas fa-map-marker-alt"></i> Germany</p>
+        <p><i class="fas fa-phone"></i> +49 1634006157</p>
+        <p><i class="fas fa-envelope"></i> chsalkeerthi55@gmail.com</p>
+        <p><i class="fab fa-linkedin"></i> LinkedIn-profile</p>
+      </div>
+    -->
+    <h3>AI & Data Science Specialist</h3>
+      <ul class="highlights-list">
+        <li>
+          <span class="emoji">🩺</span>
+          <span>Currently working in <b>AI for healthcare</b> with hands-on MLOps</span>
+        </li>
+        <li>
+          <span class="emoji">💪🏻</span>
+          <span>Handled challenging tasks in building <b>DL models for audio</b></span>
+        </li>
+        <li>
+          <span class="emoji">🏆</span>
+          <span><b>Student Cluster Competition</b> Winner at SC22</span>
+        </li>
+        <li>
+          <span class="emoji">📝</span>
+          <span><b>Published Researcher</b> in Audio Processing</span>
+        </li>
+        <li>
+          <span class="emoji">😎</span>
+          <span>At the end of the day <b>make the data shine!</b></span>
+        </li>
+      </ul>
+      
+      <div class="skills-card">
+        <h3>Technical Skills</h3>
+        
+        <div class="skill-category">
+          <h4>Programming Languages</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Python (Very Good)</span>
+            <span class="skill-tag">C++ (Very Good)</span>
+            <span class="skill-tag">Java (Very Good)</span>
+            <span class="skill-tag">C (Good)</span>
+            <span class="skill-tag">Bash Scripting</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h4>Frameworks & Tools</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">CUDA</span>
+            <span class="skill-tag">scikit-learn</span>
+            <span class="skill-tag">ROS/ROS2</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h4>Technologies</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">Deep Learning</span>
+            <span class="skill-tag">Computer Vision</span>
+            <span class="skill-tag">Data Mining</span>
+            <span class="skill-tag">Data Analytics</span>
+            <span class="skill-tag">MLOps</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h4>AWS Cloud</h4>
+          <div class="skill-tags">
+            <span class="skill-tag">EC2</span>
+            <span class="skill-tag">S3</span>
+            <span class="skill-tag">VPC</span>
+            <span class="skill-tag">Route53</span>
+            <span class="skill-tag">SageMaker</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Right Column - Scrollable Content -->
+  <div class="right-column">
+    <!-- Professional Summary -->
+    <div class="professional-summary">
+      <p>Master's graduate in Artificial Intelligence with expertise in deep learning, computer vision, and MLOps. Passionate about building intelligent systems that solve real-world problems.</p>
+    </div>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+      <h2 class="section-title">Professional Experience</h2>
+      
+      <div class="experience-accordion">
+        <!-- Siemens Healthineers -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h5>Siemens Healthineers</h5>
+              <h6>Working Student - AI Research</h6>
+            </div>
+            <div class="experience-date">Dec 2024 - Present</div>
+            <i class="fas fa-chevron-down expand-icon"></i>
+          </div>
+          <div class="experience-content">
+            <div class="experience-content-inner">
+              <ul>
+                <li>Working on AI Rad Companion project in Data Science team</li>
+                <li>Developing model monitoring systems to ensure fairness at deployment and monitoring stages</li>
+                <li>Implementing MLOps pipelines for clinical AI applications</li>
+                <li>Analysis results anomaly detection(outliers) and its confounding factors</li>
+                <li>Tasks include presentations of the monitoring findings with different stakeholders like Data scientists, Product managers, Software Developers etc. </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- University Regensburg -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h5>University of Regensburg</h5>
+              <h6>Working Student - IT Support</h6>
+            </div>
+            <div class="experience-date">June 2023 - Oct 2024</div>
+            <i class="fas fa-chevron-down expand-icon"></i>
+          </div>
+          <div class="experience-content">
+            <div class="experience-content-inner">
+              <ul>
+                <li>Supported IT team for Global Talent Mentoring platform</li>
+                <li>Resolved platform issues using Drupal CMS</li>
+                <li>Managed code using GitHub version control</li>
+                <li>Worked with PHP and Linux OS administration</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Audiolabs-Fraunhofer IIS -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h5>Audiolabs-Fraunhofer IIS</h5>
+              <h6>Master Thesis: DSP-assisted deep F0 extractor</h6>
+            </div>
+            <div class="experience-date">Thesis 2023</div>
+            <i class="fas fa-chevron-down expand-icon"></i>
+          </div>
+          <div class="experience-content">
+            <div class="experience-content-inner">
+              <ul>
+                <li>Developed PyTorch-based pitch extractor model (3 versions) using DSP features and neural networks</li>
+                <li>Achieved 98% RCA, outperforming state-of-the-art models</li>
+                <li>Gained expertise in building and evaluating DL models for audio processing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Audiolabs Erlangen -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h5>Audiolabs Erlangen</h5>
+              <h6>Working Student - Audio Research</h6>
+            </div>
+            <div class="experience-date">2022-2023</div>
+            <i class="fas fa-chevron-down expand-icon"></i>
+          </div>
+          <div class="experience-content">
+            <div class="experience-content-inner">
+              <ul>
+                <li>Conducted experiments on Voice Privacy Challenge evaluation system</li>
+                <li>Tested performance under different noise levels (Babble and Gaussian)</li>
+                <li>Presented findings at DAGA-2024 conference</li>
+                <li>Published research paper as second author</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Fraunhofer IKS -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h5>Fraunhofer IKS</h5>
+              <h6>Working Student - Database Systems</h6>
+            </div>
+            <div class="experience-date">2021-2022</div>
+            <i class="fas fa-chevron-down expand-icon"></i>
+          </div>
+          <div class="experience-content">
+            <div class="experience-content-inner">
+              <ul>
+                <li>Gained hands-on experience with PostgreSQL for SampleDB</li>
+                <li>Worked with Docker, creating and modifying containers</li>
+                <li>Modified frontend properties of existing database system</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Amazon India -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h5>Amazon India</h5>
+              <h6>Product Compliance Sr. Associate</h6>
+            </div>
+            <div class="experience-date">2020-2021</div>
+            <i class="fas fa-chevron-down expand-icon"></i>
+          </div>
+          <div class="experience-content">
+            <div class="experience-content-inner">
+              <ul>
+                <li>Worked on Amazon classification model (Model Studio)</li>
+                <li>Reduced delusion in product descriptions</li>
+                <li>Improved scrub accuracy to 99% for compliance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <!-- DRDO -->
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <h5>DRDO Center for AI and Robotics</h5>
+              <h6>Student Intern - Robotics</h6>
+            </div>
+            <div class="experience-date">2019</div>
+            <i class="fas fa-chevron-down expand-icon"></i>
+          </div>
+          <div class="experience-content">
+            <div class="experience-content-inner">
+              <ul>
+                <li>Developed robot navigation components with ROS2 Navigation2</li>
+                <li>Enhanced global path smoothing via Smac Planner</li>
+                <li>Optimized waypoints with custom behavior trees</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <h2 class="section-title">Projects & Research</h2>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="project-card card">
+            <div class="card-body">
+              <h5 class="card-title">DSP-assisted Deep F0 Extractor</h5>
+              <p>Master Thesis project developing pitch extraction models combining DSP and deep learning.</p>
+              <div class="tech-badges">
+                <span class="tech-badge">PyTorch</span>
+                <span class="tech-badge">Audio Processing</span>
+                <span class="tech-badge">DSP</span>
+              </div>
+              <p><strong>Achievement:</strong> 98% RCA accuracy outperforming SOTA models</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="project-card card">
+            <div class="card-body">
+              <h5 class="card-title">Voice Privacy Challenge</h5>
+              <p>Research on evaluation system performance under different noise conditions.</p>
+              <div class="tech-badges">
+                <span class="tech-badge">Audio Analysis</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Research</span>
+              </div>
+              <p><strong>Outcome:</strong> Published paper and DAGA-2024 presentation</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="project-card card">
+            <div class="card-body">
+              <h5 class="card-title">Autonomous Navigation</h5>
+              <p>Developed robot navigation components using ROS2 Navigation2 stack.</p>
+              <div class="tech-badges">
+                <span class="tech-badge">ROS2</span>
+                <span class="tech-badge">Robotics</span>
+                <span class="tech-badge">C++</span>
+              </div>
+              <p><strong>Innovation:</strong> Custom behavior trees for waypoint optimization</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="project-card card">
+            <div class="card-body">
+              <h5 class="card-title">Computer Vision Projects</h5>
+              <p>"Are Faces Hacking Brain?" and "Pose induced expression shift" research.</p>
+              <div class="tech-badges">
+                <span class="tech-badge">OpenCV</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">CNN</span>
+              </div>
+              <p><strong>Result:</strong> Enhanced accuracy by 2% with novel augmentation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="education" class="section">
+      <h2 class="section-title">Education</h2>
+      
+      <div class="education-item">
+        <h5>Friedrich Alexander University Erlangen-Nuremberg</h5>
+        <p>M.Sc. in Artificial Intelligence</p>
+        <p class="gpa">GPA: 2.1</p>
+      </div>
+      
+      <div class="education-item">
+        <h5>Cambridge Institute of Technology, Bengaluru</h5>
+        <p>B.E. in Computer Science</p>
+        <p class="gpa">GPA: 1.5</p>
+      </div>
+      
+      <div class="education-item">
+        <h5>Neural Networks and Deep Learning</h5>
+        <p>Coursera - DeepLearning.AI</p>
+        <p>Jan 2025</p>
+      </div>
+    </section>
+    
+    <!-- Achievements Section -->
+    <section class="section">
+      <h2 class="section-title">Achievements & Publications</h2>
+      
+      <div class="achievement-item">
+        <h5>Student Cluster Competition (Dallas)</h5>
+        <p>SuperComputing Conference 2022</p>
+        <p>Achieved highest HPCG benchmark of 1.97 TFLOPS within 3KW power, collaborating with experts from NASA, Google, and Microsoft.</p>
+      </div>
+      
+      <div class="achievement-item">
+        <h5>Investigation of Voice Privacy Challenge Baseline B1 Performance under different noise conditions</h5>
+        <p>Published at 50th Annual Acoustics Conference - DAGA, Hannover</p>
+        <p>Co-authored with Unal Ege Gaznepoglu(International Audiolabs Erlangen) and Prof. Dr. Nils Peters(Trinity College Dublin)</p>
+      </div>
+      
+      <div class="achievement-item">
+        <h5>IEEE International Symposium on the Internet of Sounds, 2024</h5>
+        <p>Volunteer</p>
+      </div>
+    </section>
+    <section class="section">
+      <h2 class="section-title">Hobbies & Interests</h2>
+      
+      <div class="row">
+        <!-- Painting Card -->
+        <div class="col-md-4 mb-4">
+          <div class="hobby-card card h-100">
+            <div class="card-body text-center">
+              <div class="hobby-icon mb-3">
+                <i class="fas fa-palette fa-3x" style="color: #9b59b6;"></i>
+              </div>
+              <h5 class="card-title">Painting & Art</h5>
+              <p class="card-text">Expressing creativity through acrylics and watercolors. Particularly enjoy landscape and abstract art.</p>
+              <button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#artGalleryModal">
+                View Gallery
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Puzzles Card -->
+        <div class="col-md-4 mb-4">
+          <div class="hobby-card card h-100">
+            <div class="card-body text-center">
+              <div class="hobby-icon mb-3">
+                <i class="fas fa-puzzle-piece fa-3x" style="color: #3498db;"></i>
+              </div>
+              <h5 class="card-title">Puzzle Solving</h5>
+              <p class="card-text">Passionate about Sudoku, logic puzzles, and brain teasers. Enjoy the challenge of pattern recognition.</p>
+              <div class="puzzle-container mt-3">
+                <button class="btn btn-sm btn-outline-info puzzle-btn" data-answer="42">What is 6×7?</button>
+                <button class="btn btn-sm btn-outline-info puzzle-btn ml-2" data-answer="Python">What language has 'list comprehensions'?</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Fitness Card -->
+        <div class="col-md-4 mb-4">
+          <div class="hobby-card card h-100">
+            <div class="card-body text-center">
+              <div class="hobby-icon mb-3">
+                <i class="fas fa-heartbeat fa-3x" style="color: #e74c3c;"></i>
+              </div>
+              <h5 class="card-title">Fitness Activities</h5>
+              <div class="fitness-tags mt-3">
+                <span class="badge badge-pill badge-light mb-2"><i class="fas fa-water mr-1"></i> Swimming</span>
+                <span class="badge badge-pill badge-light mb-2"><i class="fas fa-music mr-1"></i> Zumba</span>
+                <span class="badge badge-pill badge-light mb-2"><i class="fas fa-hiking mr-1"></i> Hiking</span>
+                <span class="badge badge-pill badge-light mb-2"><i class="fas fa-table-tennis mr-1"></i> Badminton</span>
+              </div>
+              <p class="card-text mt-3">Believe in maintaining a healthy work-life balance through regular physical activity.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Art Gallery Modal -->
+    <div class="modal fade" id="artGalleryModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">My Art Gallery</h5>
+            <button type="button" class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="artCarousel" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="https://via.placeholder.com/800x500?text=Abstract+Painting+1" class="d-block w-100" alt="Abstract Painting">
+                  <div class="carousel-caption d-none d-md-block">
+                    <p>"Colorful Abstractions" - Acrylic on canvas</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="https://via.placeholder.com/800x500?text=Landscape+Painting" class="d-block w-100" alt="Landscape Painting">
+                  <div class="carousel-caption d-none d-md-block">
+                    <p>"Mountain View" - Watercolor</p>
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#artCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next" href="#artCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <style>
+      .hobby-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      }
+      
+      .hobby-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+      
+      .hobby-icon {
+        transition: transform 0.3s ease;
+      }
+      
+      .hobby-card:hover .hobby-icon {
+        transform: scale(1.1);
+      }
+      
+      .fitness-tags .badge {
+        transition: all 0.3s ease;
+        font-size: 0.85rem;
+        padding: 5px 10px;
+      }
+      
+      .fitness-tags .badge:hover {
+        transform: scale(1.05);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      
+      .puzzle-btn {
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .puzzle-btn::after {
+        content: attr(data-answer);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(52, 152, 219, 0.9);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      
+      .puzzle-btn:hover::after {
+        opacity: 1;
+      }
+    </style>
+    
+    <script>
+      // Puzzle button hover effect
+      document.querySelectorAll('.puzzle-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const answer = this.getAttribute('data-answer');
+          this.textContent = answer;
+          setTimeout(() => {
+            this.innerHTML = this.getAttribute('data-original') || 'Try another!';
+          }, 2000);
+        });
+        
+        // Store original text
+        btn.setAttribute('data-original', btn.textContent);
+      });
+    </script>
 
-<!-- Bootstrap JS and dependencies (jQuery and Popper) -->
+
+  </div>
+</div>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section text-center">
+  <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
+    
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <p class="lead">I'm always interested in hearing about new opportunities, research collaborations, or interesting projects.</p>
+        
+        <div class="contact-methods">
+          <a href="mailto:chsaikeerthi55@gmail.com" class="btn btn-light btn-lg mr-3">
+            <i class="fas fa-envelope mr-2"></i> Email Me
+          </a>
+          <a href="tel:+491634006157" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-phone mr-2"></i> Call Me
+          </a>
+        </div>
+        
+        <div class="social-links">
+          <a href="https://linkedin.com/in/sai-keerthi-chirumamilla" class="mx-3">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/saichirumamilla" class="mx-3">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="mx-3">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        
+        <div class="references mt-5">
+          <h5>References Available Upon Request</h5>
+          <p>Including Prof. Dr. Nils Peters (Thesis Advisor) and Dr. Daniel Patrick Balestrini (University Mentor)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // Experience accordion functionality
+  document.querySelectorAll('.experience-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      item.classList.toggle('active');
+      
+      // Close other open items
+      document.querySelectorAll('.experience-item').forEach(otherItem => {
+        if (otherItem !== item && otherItem.classList.contains('active')) {
+          otherItem.classList.remove('active');
+        }
+      });
+    });
+  });
+  
+  // Open first experience item by default
+  document.querySelector('.experience-item').classList.add('active');
+</script>
 </body>
 </html>
